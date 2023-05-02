@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 public class kunde {
     @Id
     @GeneratedValue
-    private int kid;
+    private int id; // endret for at jpa skal fungere
     private String name;
     private String phone;
     private String mail;
@@ -18,8 +18,8 @@ public class kunde {
     public kunde() {
     }
 
-    public kunde(int kid, String name, String phone, String mail, String password) {
-        this.kid = kid;
+    public kunde(int id, String name, String phone, String mail, String password) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.mail = mail;
@@ -27,11 +27,11 @@ public class kunde {
     }
 
     public int getKid() {
-        return kid;
+        return id;
     }
 
-    public void setKid(int kid) {
-        this.kid = kid;
+    public void setKid(int i) {
+        this.id = id;
     }
 
     public String getName() {
