@@ -12,6 +12,7 @@ public class bestilling {
 
     @GeneratedValue
     private int bid;
+
     private int kid;
     private int bord;
     private Date motatt;
@@ -37,7 +38,7 @@ public class bestilling {
         this.bid = bid;
     }
 
-    public int getKid() {
+    public Iterable<Integer> getKid() {
         return kid;
     }
 

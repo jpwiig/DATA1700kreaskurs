@@ -4,6 +4,9 @@ import com.data1700.kraeskursEks2022.pojo.bestilling;
 import com.data1700.kraeskursEks2022.pojo.kunde;
 import com.data1700.kraeskursEks2022.pojo.vare;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /*
 *
@@ -14,6 +17,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface bestillingRepository extends JpaRepository<bestilling, Integer>{
 }
 interface Kunderepository extends JpaRepository<kunde, Integer>{
+
+
 
 }
 interface vareRepository extends JpaRepository<vare, Integer>{

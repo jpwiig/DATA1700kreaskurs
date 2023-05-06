@@ -14,9 +14,14 @@ $(() => {
 
 })
 function bestill (obj){
-$.post("/bestill", obj, () => {
-    console.log("ok")
-    })
+    if (err(obj)) {
+        $.post("/bestill", obj, () => {
+            console.log("ok")
+        }).fail( const json = $.parseJSON(jqXHR.responseText), (json) => {
+            alert(json)
+        }
+    )
+    }
 }
 
 function err (obj){
