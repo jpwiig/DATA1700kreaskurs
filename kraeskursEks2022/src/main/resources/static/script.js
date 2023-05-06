@@ -17,10 +17,11 @@ function bestill (obj){
     if (err(obj)) {
         $.post("/bestill", obj, () => {
             console.log("ok")
-        }).fail( const json = $.parseJSON(jqXHR.responseText), (json) => {
+        }).fail(  () => {
+                const json =$.parseJSON(jqXHR.responseText)
             alert(json)
         }
-    )
+        )
     }
 }
 
