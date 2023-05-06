@@ -1,10 +1,11 @@
 package com.data1700.kraeskursEks2022.pojo;
 //ikke en del av ekasamen
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+@Entity
 @Table (name = "vare")
 public class vare {
     @Id
@@ -17,8 +18,8 @@ public class vare {
     public vare() {
     }
 
-    public vare(int vid, String varenavn, int pris, int antall) {
-        this.vid = vid;
+    public vare(int id, String varenavn, int pris, int antall) {
+        this.id = id;
         this.varenavn = varenavn;
         this.pris = pris;
         this.antall = antall;

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 //ikke en del av eksamen
+@Entity
+@Table
 public class bestilling {
     @Id
 

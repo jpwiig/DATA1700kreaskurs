@@ -1,10 +1,12 @@
 package com.data1700.kraeskursEks2022.pojo;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 //ikke en del av eksamen, bruker ROM for å lage database
+@Entity
 @Table (name = "kunde")
 public class kunde {
     @Id
