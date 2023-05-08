@@ -38,7 +38,7 @@ public class bestilling {
         this.bid = bid;
     }
 
-    public Iterable<Integer> getKid() {
+    public int getKid() {
         return kid;
     }
 

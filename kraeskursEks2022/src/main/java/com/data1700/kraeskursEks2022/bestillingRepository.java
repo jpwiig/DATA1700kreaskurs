@@ -18,7 +18,7 @@ public interface bestillingRepository extends JpaRepository<bestilling, Integer>
 }
 interface Kunderepository extends JpaRepository<kunde, Integer>{
 
-
+int countbymail(String mail);
 
 }
 interface vareRepository extends JpaRepository<vare, Integer>{

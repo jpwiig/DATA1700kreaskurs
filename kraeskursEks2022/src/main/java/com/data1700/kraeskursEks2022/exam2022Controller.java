@@ -58,9 +58,23 @@ public class exam2022Controller {
     @Transactional
     public void placeorder(bestilling order) {
     rep.findAll().add(order);
+    //TODO: Closer look @ this
     entityManager.persist(rep2.findAllById(order.getKid()));
-    }
 
+    }
+    //TODO: Add a user to the database
+
+    //TODO: log in to an existing user with sessions
+    @PostMapping("/login")
+    public void login(kunde user, HttpServletResponse respone) throws IOException{
+        try {
+                if (user.getMail() == rep2.findBy(user.getMail())) {
+                    if (rep2.findBy(password) == user.getPassword()) {
+                        session.setAttribute("user", user);
+                    }
+                }
+        }
+    }
     public String crypt(String pw) {
         return BCrypt.hashpw(pw, BCrypt.gensalt(14));
     }
