@@ -69,10 +69,14 @@ public class exam2022Controller {
     public void login(kunde user, HttpServletResponse respone) throws IOException{
         try {
                 if (user.getMail() == rep2.findBy(user.getMail())) {
-                    if (rep2.findBy(password) == user.getPassword()) {
+                    if (BCrypt.checkpw(rep2.findBy(user.getMail()).getPassword(), user.getPassword())) {
                         session.setAttribute("user", user);
+
                     }
                 }
+        } catch (Exception e){
+            log.error("feil i innlogging");
+            respone.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Feil i innlogging");
         }
     }
     public String crypt(String pw) {
