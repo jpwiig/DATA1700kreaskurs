@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController("/exam2022")
@@ -37,6 +38,7 @@ public class exam2022Controller {
 
     @Autowired
     EntityManager entityManager;
+
     //oppgave1
     @GetMapping("/sjekk")
     public String check() {
@@ -56,29 +58,37 @@ public class exam2022Controller {
     }
 
     @Transactional
-    public void placeorder(bestilling order) {
-    rep.findAll().add(order);
-    //TODO: Closer look @ this
-    entityManager.persist(rep2.findAllById(order.getKid()));
+    public void placeorder(bestilling order) throws Exception {
+        int kid = order.getKid();
+        //TODO: Closer look @ this
+        if (rep2.existsById(kid)) {
+            rep.save(order);
+        } else {
+            log.error("kunde eksisterer ikke");
+            throw new Exception("kunde eksisterer ikke");
+
+        }
 
     }
     //TODO: Add a user to the database
 
     //TODO: log in to an existing user with sessions
     @PostMapping("/login")
-    public void login(kunde user, HttpServletResponse respone) throws IOException{
+    public void login(kunde user, HttpServletResponse respone) throws IOException {
         try {
-                if (user.getMail() == rep2.findBy(user.getMail())) {
-                    if (BCrypt.checkpw(rep2.findBy(user.getMail()).getPassword(), user.getPassword())) {
-                        session.setAttribute("user", user);
+            List<kunde> users = rep2.findbyMail(user.getMail());
+            if (users.size() == 1) {
+                if (BCrypt.checkpw(users.get(1).getPassword(), user.getPassword())) {
+                    session.setAttribute("user", user);
 
-                    }
                 }
-        } catch (Exception e){
+            }
+        } catch (Exception e) {
             log.error("feil i innlogging");
             respone.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Feil i innlogging");
         }
     }
+
     public String crypt(String pw) {
         return BCrypt.hashpw(pw, BCrypt.gensalt(14));
     }
