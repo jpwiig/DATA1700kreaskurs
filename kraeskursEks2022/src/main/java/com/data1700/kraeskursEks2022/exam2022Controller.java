@@ -60,7 +60,6 @@ public class exam2022Controller {
     @Transactional
     public void placeorder(bestilling order) throws Exception {
         int kid = order.getKid();
-        //TODO: Closer look @ this
         if (rep2.existsById(kid)) {
             rep.save(order);
         } else {
@@ -88,7 +87,16 @@ public class exam2022Controller {
             respone.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Feil i innlogging");
         }
     }
-
+public void adduser (kunde newUser){
+        try{
+            if(rep2.countbymail(newUser.getMail())==0){
+                newUser.setPassword(crypt(newUser.getPassword()));
+                rep2.save(newUser);
+            }
+        }  catch (Exception e){
+            log.error("feil i lagring av brukeren " + e);
+        }
+}
     public String crypt(String pw) {
         return BCrypt.hashpw(pw, BCrypt.gensalt(14));
     }

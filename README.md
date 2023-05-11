@@ -26,4 +26,4 @@ Velkommen til github repository for NITO sitt kræsjkurst i data1700. Her kan du
 
  
 - [eksempel på implementasjon av rekursjon (hentet fra Algoritmer og datastrukturer 2022)](https://github.com/strene/oslomet-algdat-2022-material/blob/master/src/Recursion1.java)
-- [Generiske datatyper, coding with john]()
+- [Generiske datatyper, coding with john](https://www.youtube.com/watch?v=K1iu1kXkVoA&t=11s)
