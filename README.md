@@ -16,6 +16,7 @@ Kurset ble holdt den 13 Mai 2023, 16:00-20:00 i PH170, dette kurset er ment for 
 
 
 
+
 - 2022 ordinær (gjort før kurset) &rarr; med jdbc 
 - 2021 ordinær (underveis i kurset) &rarr; forsøkt med hibernate og jpa, men har ikke blitt testet kjørt 
 
@@ -34,7 +35,6 @@ Kurset ble holdt den 13 Mai 2023, 16:00-20:00 i PH170, dette kurset er ment for 
 - **spring security**: 
   - [Spring security UTEN implementasjon fra DB](https://github.com/jpwiig/securityData1700)
 -  [java docs om arraylist](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
-
 
 ### Litt om datastrukturer, rekusjon og generiske datatyper (kommer ikke til å gå gjennom dette på kurset så mye, men er kjekt å se på)
 
