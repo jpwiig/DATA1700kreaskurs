@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,9 +34,38 @@ public class examController {
             log.error("feil i lagring " + e);
         }
     }
-    public boolean vailderPakke(Kunde validerpakke){
+    public boolean vailderkunde(Kunde kunde){
         String regxepNavn = "[a-zæøåA-ZÆØÅ. \\-]{2,50}";
         String regexpadresse = "[a-zæøåA-ZÆØÅ. \\-]{2,46}[0-9]{0,3}";
         String regexpPostnr =  "[0-9] {4}";
+
+
+        if (kunde.getFornavn().matches(regxepNavn) && kunde.getEtternavn().matches(regxepNavn) && kunde.getAdresse().matches(regexpadresse) && kunde.getPostnr().matches(regexpPostnr)){
+            return true;
+        } else {
+            if (!kunde.getFornavn().matches(regxepNavn)){
+                log.error("feil i navn regexp");
+            }
+            log.error("feil i rexep");
+            return false;
+        }
+    }
+
+    @GetMapping("/sjekkPostnr")
+    public boolean gyldigpostnr(String pstnr){
+        String sql = "Select * from Poststed";
+
+        List<Poststed>poststeder = db.query(sql,  new BeanPropertyRowMapper<>(Poststed.class));
+        for (Poststed  p : poststeder){
+            if (pstnr.equals(p.getSted())){
+                System.out.println("Postnummeret eksister og hører til " + p.getSted());
+                return true;
+            }
+            else {
+                log.error("postestedet fantes ikke");
+                return false;
+            }
+        }
+    return false;
     }
 }

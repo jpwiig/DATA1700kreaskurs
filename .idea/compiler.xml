@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="kraeskursEks2022" />
+        <module name="eksamen2021" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eksamen2021" options="-parameters" />
       <module name="kraeskursEks2022" options="-parameters" />
     </option>
   </component>
