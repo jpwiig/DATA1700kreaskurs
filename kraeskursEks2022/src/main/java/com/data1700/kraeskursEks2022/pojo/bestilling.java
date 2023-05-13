@@ -6,7 +6,7 @@ import java.util.Date;
 
 //ikke en del av eksamen
 @Entity
-@Table
+@Table(name = "bestilling")
 public class bestilling {
     @Id
 

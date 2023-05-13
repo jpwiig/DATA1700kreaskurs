@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DATA1700kreaskurs.iml" filepath="$PROJECT_DIR$/.idea/DATA1700kreaskurs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hashingavpassord/hashingavpassord.iml" filepath="$PROJECT_DIR$/hashingavpassord/hashingavpassord.iml" />
     </modules>
   </component>
 </project>
