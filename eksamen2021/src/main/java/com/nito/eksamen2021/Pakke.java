@@ -1,5 +1,7 @@
 package com.nito.eksamen2021;
-
+/*
+POJO
+ */
 public class Pakke {
     public int pid;
     public int kid;

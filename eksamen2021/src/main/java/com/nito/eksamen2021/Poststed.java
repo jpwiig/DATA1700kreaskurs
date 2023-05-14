@@ -1,5 +1,7 @@
 package com.nito.eksamen2021;
-
+/*
+POJO
+ */
 public class Poststed {
     public String sted;
     public String postnr;

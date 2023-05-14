@@ -1,5 +1,8 @@
 package com.nito.eksamen2021;
 
+/*
+POJO
+ */
 public class Kunde {
     private String fornavn;
     private String etternavn;

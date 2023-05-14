@@ -1,12 +1,13 @@
 //oppgave1
 
-$(()=>{
+$(()=>{ //ready function
     console.log("ready!")
 
 
 
     $("#register").click(
         () =>  {
+            //lager object av pakken
             let pakken = {
                 fornavn : $("#fornavn").val(),
                 etternavn : document.getElementById("etternavn"),
@@ -17,27 +18,29 @@ $(()=>{
                 volum  : $("#volum").val(),
                 vekt : $("#vekt").val()
             }
-            if(vailderPakkeFE(pakken)){
-                lagre(pakken)
+            if(vailderPakkeFE(pakken)){ //validering
+                lagre(pakken) //kaller på lagre funksjonen
             }
         })
 
 })
 //1 a)
 function lagre(pakke){
-    $.get("/lagre", pakke, (data) => {
+    $.get("/lagre", pakke, (data) => { //sender request til server
         print(data)
     })
 }
 function vailderPakkeFE(pakke){
+    //javascript rexexp
     const regexpfnavn = /^[a-zæøåA-ZÆØÅ]{2,50}$
     const regexpenavn = /^[a-zæøåA-ZÆØÅ]{2,50}$
     const regexppostnr = /^[0-9]{4}$
 
     if (regexpenavn.test(pakke.etternavn), regexpfnavn.test(pakke.fornavn), regexppostnr.test(pakke.Postnr)){
-        return true;
+        return true; //alt riktig,return true
 
     } else {
+        //validering for hver enkel
         if (!regexpenavn.test(pakke.etternavn)) {
             alert("Feil i  etternavnet")
             return false
@@ -54,16 +57,19 @@ function vailderPakkeFE(pakke){
 
 }
 function lagre(pakke){
+    //lagrer pakken med get
     $.get("/lagre", pakke, pakke.telefonnr , function (data) {
         print(data)
     })
 }
 
 function sjekkPostnr(pakke){
+    //sjekkker bostnummer, skal returnere bool
     $.get("/sjekkPostnr", pakken.Postnr, function (data) {
 return data
     })
 }
+
 
 $.ajax(
     {
