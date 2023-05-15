@@ -15,8 +15,8 @@ informarsjonsteknologi (*go teknologer*), data ingienør og årsstudium IT
 
 ## Eksamener som ligger her (i seperate mapper):
 
-- 2022 ordinær (gjort før kurset) &rarr; med jdbc
-- 2021 ordinær (underveis i kurset) &rarr; forsøkt med hibernate og jpa, men har ikke blitt testet kjørt
+- 2022 ordinær (gjort før kurset) &rarr; forsøkt med hibernate og jpa, men har ikke blitt testet kjørt
+- 2021 ordinær (underveis i kurset) &rarr;  med jdbc
 
 ### Hvordan man kobler til jquery og bootstrap
 
